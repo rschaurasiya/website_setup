@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Logs
+logs/
+*.log
+
+# Uploads (add to .gitignore if files are large)
+uploads/*
+!uploads/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build outputs
+dist/
+build/
+*.exe
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.pytest_cache/
+
+# Database
+*.db
+*.sqlite
+backend/config/serviceAccountKey.json
+backend/config/serviceAccountKey.json
+backup/serviceAccountKey.json
+.env
+node_modules/
+frontend/.vite/

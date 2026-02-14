@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+
+  --color-secondary: #1e293b;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Merriweather', serif;
+  --font-nepali: 'Noto Sans Devanagari', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-secondary bg-slate-50 dark:bg-slate-950 dark:text-slate-200 transition-colors duration-300;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-bold text-slate-900 dark:text-slate-100;
+  }
+}
+
+.font-nepali,
+.font-nepali .ql-editor,
+.font-nepali .ql-container,
+.font-nepali input,
+.font-nepali textarea {
+  font-family: var(--font-nepali);
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 transition-colors duration-200;
+}
+
+.btn-secondary {
+  @apply bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-600 px-4 py-2 rounded-md hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors duration-200;
+}
+
+/* React Quill Dark Mode Overrides */
+.dark .ql-toolbar {
+  @apply bg-slate-800 border-slate-700 text-slate-200 border-none rounded-t-lg;
+}
+
+.dark .ql-toolbar .ql-stroke {
+  @apply stroke-slate-400;
+}
+
+.dark .ql-toolbar .ql-fill {
+  @apply fill-slate-400;
+}
+
+.dark .ql-toolbar .ql-picker {
+  @apply text-slate-200;
+}
+
+.dark .ql-container {
+  @apply bg-slate-800 border-slate-700 text-slate-200 border-none rounded-b-lg;
+}
+
+.dark .ql-editor.ql-blank::before {
+  @apply text-slate-500;
+}
