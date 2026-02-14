@@ -3,20 +3,9 @@ require('dotenv').config({ path: '../.env' }); // Load env vars from root
 
 // Database Connection Configuration
 // Supports both DATABASE_URL (production) and individual env vars (development)
-const pool = new Pool(
-    process.env.DATABASE_URL
-        ? {
-            connectionString: process.env.DATABASE_URL,
-            ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
-        }
-        : {
-            user: process.env.DB_USER,
-            host: process.env.DB_HOST,
-            database: process.env.DB_NAME,
-            password: process.env.DB_PASSWORD,
-            port: process.env.DB_PORT || 5432,
-        }
-);
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL
+});
 
 // Test Connection
 pool.connect((err, client, release) => {
